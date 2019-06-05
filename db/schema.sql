@@ -1,0 +1,11 @@
+CREATE DATABASE games_db;
+
+USE games_db;
+
+CREATE TABLE game (
+		id INT NOT NULL AUTO_INCREMENT,
+		game_name VARCHAR(180) NOT NULL,
+		played BOOLEAN NOT NULL,
+		PRIMARY KEY (id)
+		);
+
