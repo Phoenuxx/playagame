@@ -7,15 +7,17 @@ var orm = {
         connection.query(query, function(err, res) {
             if (err) {
                 throw err;
-                }
-                cb(result);
+                };
+            cb(res);
         });
-        console.log(tableInput);
     },
-    insertOne: function() {
-        var query = "INSERT INTO game VALUES" + req.body ;
+    insertOne: function(tableInput, game_name, played, cb) {
+        var query = "INSERT INTO " + tableInput + "(game_name, played) VALUES" + [game_name,played];
         connection.query(query, function(err, res) {
-            res.json(res);
+            if (err) {
+                throw err;
+              };
+            cb(res);
         });
         console.log('insert uno');
     },

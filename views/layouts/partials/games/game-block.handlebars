@@ -1,0 +1,10 @@
+<p>hi</p>
+<li>
+	{{name}}
+
+	<button class="change-played" data-id="{{id}}" data-newplay="{{play}}">
+		{{#if played}}Play Me Already...{{else}}Want to Play Again?{{/if}}
+	</button>
+
+	<button class="delete-game" data-id="{{this.id}}">DELETE!</button>
+</li>

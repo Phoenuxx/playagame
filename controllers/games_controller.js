@@ -9,11 +9,20 @@ router.get("/", function(req,res){
         var hbObject = {
             game: data
         }
-        console.log(hbObject);
+        // console.log(hbObject);
         res.render("index", hbObject);
     });
 });
 
+router.post("/api/games", function(req, res) {
+    game.create([
+        "game_name", "played"
+    ], [
+        req.body.name, req.body.played
+    ], function(result){
+        res.json({ id: result.insertId });
+    })
+})
 
 // Export routes for server.js to use
 module.exports = router;
