@@ -13,9 +13,9 @@ var game = {
             cb(res);
         });
     },
-    updateOne: function ( column, value, cb) {
+    updateOne: function (column, condition, cb) {
         // pass into the orm.functionName, the Database table name, and then a function
-        orm.updateOne("game", column, value, function (res) {
+        orm.updateOne("game", column, condition, function (res) {
             cb(res);
         });
     }

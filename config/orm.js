@@ -24,8 +24,8 @@ var orm = {
         });
         console.log('insert uno');
     },
-    updateOne: function() {
-        var query = "SELECT * FROM game" ;
+    updateOne: function(table, column, table) {
+        var query = "UPDATE " + table + "SET " + column + "WHERE " + value;
         connection.query(query, function(err, res) {
             res.json(res);
         });

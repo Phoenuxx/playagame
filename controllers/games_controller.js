@@ -27,9 +27,19 @@ router.post("/api/games", function(req, res) {
 })
 
 router.put("api/games/:id", function(req,res) {
-    var value = "id = " + req.params.id;
+    var condition = "id = " + req.params.id;
     
-})
+    game.updateOne({
+        played: req.body.played
+    }, condition, function(res) {
+        if (result.changedRows == 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+          } else {
+            res.status(200).end();
+          }
+    })
+});
 
 // Export routes for server.js to use
 module.exports = router;

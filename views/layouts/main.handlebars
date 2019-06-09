@@ -33,6 +33,27 @@
     );
   });
 
+  $(".change-played").on("click", function(event) {
+    console.log("click");
+    var id = $(this).data("id");
+    var newPlayed = $(this).data("newplayed");
+
+    var newPlayedState = {
+      played: newPlayed
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/games/" + id, {
+      type: "PUT",
+      data: newPlayedState
+    }).then(
+      function() {
+        console.log("changed sleep to", newPlayed);
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
 </script>
 
 </html>
