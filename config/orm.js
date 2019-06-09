@@ -2,8 +2,8 @@ connection = require('./connection');
 
 
 var orm = {
-    selectAll: function(tableInput, cb) {
-        var query = "SELECT * FROM " + tableInput + ";";
+    selectAll: function(table, cb) {
+        var query = "SELECT * FROM " + table + ";";
         connection.query(query, function(err, res) {
             if (err) {
                 throw err;
@@ -11,8 +11,11 @@ var orm = {
             cb(res);
         });
     },
-    insertOne: function(tableInput, game_name, played, cb) {
-        var query = "INSERT INTO " + tableInput + "(game_name, played) VALUES" + [game_name,played];
+    insertOne: function(table, columns, values, cb) {
+        var query = "INSERT INTO " + table + "(" + columns + ") VALUES" + "(" + values + ");";
+        console.log(query);
+        console.log(columns);
+        console.log(values);
         connection.query(query, function(err, res) {
             if (err) {
                 throw err;

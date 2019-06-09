@@ -15,13 +15,20 @@ router.get("/", function(req,res){
 });
 
 router.post("/api/games", function(req, res) {
-    game.create([
+    console.log("+_________+");
+    console.log(req.body.game_name);
+    game.insertOne([
         "game_name", "played"
     ], [
-        req.body.name, req.body.played
+        "'" + req.body.game_name + "'", req.body.played
     ], function(result){
         res.json({ id: result.insertId });
     })
+})
+
+router.put("api/games/:id", function(req,res) {
+    var value = "id = " + req.params.id;
+    
 })
 
 // Export routes for server.js to use

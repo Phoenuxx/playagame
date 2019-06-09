@@ -7,15 +7,15 @@ var game = {
             cb(res);
         });
     },
-    insertOne: function (game_name, played, cb) {
+    insertOne: function (columns, values, cb) {
         // pass into the orm.functionName, the Database table name, and then a function
-        orm.InsertOne("game", game_name, played, function (res) {
+        orm.insertOne("game", columns, values, function (res) {
             cb(res);
         });
     },
-    updateOne: function (someting, somethingElse, cb) {
+    updateOne: function ( column, value, cb) {
         // pass into the orm.functionName, the Database table name, and then a function
-        orm.updateOne("game", something, somethingElse, function (res) {
+        orm.updateOne("game", column, value, function (res) {
             cb(res);
         });
     }

@@ -5,7 +5,9 @@
   {{#each game}}
     {{#unless played}}
       {{game_name}}
-      {{played}}
+            <button class="change-played" data-id="{{id}}" data-newplayed="{{played}}">
+		{{#if played}}Need To Play Again{{else}}Check One Off The List{{/if}}
+	</button>
     {{/unless}}
   {{/each}}
 </ul>
@@ -17,6 +19,9 @@
   {{#each game}}
     {{#if played}}
       {{game_name}}
+      <button class="change-played" data-id="{{id}}" data-newplayed="{{played}}">
+		{{#if played}}Need To Play Again{{else}}Check One Off The List{{/if}}
+	</button>
     {{/if}}
   {{/each}}
 </ol>
@@ -30,10 +35,10 @@
   </div>
 
   <div class="form-group">
-    <label for="played">Played already?</label><br>
-    <input type="radio" name="played" value="1" checked> In the Backlog<br>
-    <input type="radio" name="played" value="0"> Already Played
+    <label for="played_">Played already?</label><br>
+    <input type="radio" name="played" value="0" checked> Into the Backlog<br>
+    <input type="radio" name="played" value="1"> Already Played
   </div>
 
-  <button type="submit">Add Cat</button>
+  <button type="submit">Add Game</button>
 </form>

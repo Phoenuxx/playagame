@@ -1,11 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Game Play Tracker!</title>
   <script src="https://code.jquery.com/jquery.js"></script>
 </head>
+
 <body>
   {{{ body }}}
 </body>
+
+<script>
+ $(".create-form").on("submit", function(event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newGame = {
+      game_name: $("#ca").val().trim(),
+      played: $("[name=played]:checked").val().trim()
+    };
+    // Send the POST request.
+    $.ajax("/api/games", {
+      type: "POST",
+      data: newGame
+    }).then(
+      function() {
+        console.log("created new game");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+</script>
+
 </html>
