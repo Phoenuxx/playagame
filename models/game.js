@@ -17,6 +17,11 @@ var game = {
         // pass into the orm.functionName, the Database table name, and then a function
         orm.updateOne("game", column, condition, function (res) {
             cb(res);
+            console.log("model column: vv");
+            console.log(column);
+            console.log("model condition: vv");
+            console.log(condition);
+            
         });
     }
 }

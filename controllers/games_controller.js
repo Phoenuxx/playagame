@@ -15,8 +15,8 @@ router.get("/", function(req,res){
 });
 
 router.post("/api/games", function(req, res) {
-    console.log("+_________+");
-    console.log(req.body.game_name);
+    // console.log("+_________+");
+    // console.log(req.body.game_name);
     game.insertOne([
         "game_name", "played"
     ], [
@@ -28,7 +28,7 @@ router.post("/api/games", function(req, res) {
 
 router.put("api/games/:id", function(req,res) {
     var condition = "id = " + req.params.id;
-    
+    console.log("test controller update");
     game.updateOne({
         played: req.body.played
     }, condition, function(res) {

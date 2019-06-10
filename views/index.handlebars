@@ -5,7 +5,7 @@
   {{#each game}}
     {{#unless played}}
       {{game_name}}
-            <button class="change-played" data-id="{{id}}" data-newplayed="{{played}}">
+            <button class="change-played" data-id="{{id}}" data-newplayed={{played}}>
 		{{#if played}}Need To Play Again{{else}}Check One Off The List{{/if}}
 	</button>
     {{/unless}}
@@ -19,7 +19,7 @@
   {{#each game}}
     {{#if played}}
       {{game_name}}
-      <button class="change-played" data-id="{{id}}" data-newplayed="{{played}}">
+      <button class="change-played" data-id="{{id}}" data-newplayed={{played}}>
 		{{#if played}}Need To Play Again{{else}}Check One Off The List{{/if}}
 	</button>
     {{/if}}

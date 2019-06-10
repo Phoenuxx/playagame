@@ -42,13 +42,16 @@
       played: newPlayed
     };
 
+console.log("new played state vvv");
+console.log(newPlayedState);
+ 
     // Send the PUT request.
     $.ajax("/api/games/" + id, {
       type: "PUT",
       data: newPlayedState
     }).then(
       function() {
-        console.log("changed sleep to", newPlayed);
+        console.log("changed played to", newPlayed);
         // Reload the page to get the updated list
         location.reload();
       }
